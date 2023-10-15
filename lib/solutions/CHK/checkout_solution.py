@@ -1,6 +1,7 @@
 import collections
 from io import StringIO
 import re
+import pandas as pd
 # noinspection PyUnusedLocal
 # skus = unicode string
 
@@ -125,6 +126,7 @@ def checkout(skus):
 
 
 assert checkout("FFF") == 20
+
 
 
 
