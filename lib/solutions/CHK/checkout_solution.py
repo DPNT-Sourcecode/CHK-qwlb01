@@ -112,13 +112,15 @@ def populateItemsOffers(table):
     offers = {}
 
     for i, row in table.iterrows():
-        validItems[row['Item']] = row['Price']
+        validItems[row['Item']] = int(row['Price'])
 
         if row['Special offers'] != None:
             if "free" in row['Special offers']:
-                if row['Item'] == row['Special offers'][]
-                offers[row['Item']] = [()]
-            print(row['Special offers'])
+                if row['Item'] == row['Special offers'][11]:
+                    offers[row['Item']] = [(int(row['Special offers'][0]) + 1, int(row['Special offers'][0]) * int(row['Price']))]
+
+        print(offers)
+            
 
 
     
@@ -140,6 +142,7 @@ def checkout(skus):
 
 
 assert checkout("FFF") == 20
+
 
 
 
