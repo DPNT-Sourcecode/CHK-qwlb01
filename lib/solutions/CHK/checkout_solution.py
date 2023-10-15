@@ -78,9 +78,3 @@ def checkout(skus):
 assert checkout("AAAABBEE") == 225
 assert checkout("AA") == 100
 assert checkout("AF") == -1
-
-
-
-
-
-
