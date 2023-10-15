@@ -111,7 +111,8 @@ def populateItemsOffers(table):
     validItems = {}
     offers = {}
 
-    print(table.keys)
+    for item, price, offer in table.items():
+        print(item)
 
 
 def checkout(skus):
@@ -132,6 +133,7 @@ def checkout(skus):
 
 
 assert checkout("FFF") == 20
+
 
 
 
