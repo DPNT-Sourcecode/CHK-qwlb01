@@ -1,6 +1,6 @@
 import collections
+from io import StringIO
 import re
-
 # noinspection PyUnusedLocal
 # skus = unicode string
 
@@ -102,25 +102,12 @@ priceTable = """
 | X    | 90    |                        |
 | Y    | 10    |                        |
 | Z    | 50    |                        |
-+------+-------+------------------------+ """
++------+-------+------------------------+ 
+"""
 
 def checkout(skus):
-
-    likes,dislikes = [],[]
-    pairs = re.split("\+-*\+-*\+\n?",likes_and_dislikes)[2:-1] #Drop the header and the tail
-    for p in pairs:
-    likse,dislike = [],[]
-    for l in p.split('\n'):
-        pair = l.split('|')
-        if len(pair) > 1:
-        # Not a blank line
-        like.append(pair[1].strip())
-        dislike.append(pair[2].strip())
-    if len(like) > 0:
-        likes.append(" ".join(like))
-    if len(dislike) > 0:
-        dislikes.append(" ".join(dislike))
     
+    df1 = pd.read_csv(StringIO(re.sub(r'[|+]|-{2,}', '  ', priceTable)), sep='\s{2,}', engine='python')
     validItems = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10}
     #num offer = for that item, 0 cost = consumable free offer, char = one free of that item
     #odered in terms of best price for customer
@@ -138,6 +125,7 @@ def checkout(skus):
 
 
 assert checkout("FFF") == 20
+
 
 
 
