@@ -29,6 +29,12 @@ class CalculateShop:
     
     def calculateCost(self) -> int:
         
+        price = 0
+
+        for k, v in self.items.items():
+            if k in self.offers:
+                price += 
+
 
 
 
@@ -45,6 +51,7 @@ def checkout(skus):
     calShop.countSKUS()
 
     
+
 
 
 
