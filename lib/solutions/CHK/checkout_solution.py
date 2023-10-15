@@ -124,10 +124,11 @@ def populateItemsOffers(table):
             else:
                 offers[row['Item']] = []
                 nums = [int(s) for s in re.findall(r'\b\d+\b', row['Special offers'])]
-                offerArray = row['Special offers'].split(',').strip()
-
+                offerArray = row['Special offers'].split(',')
+                arr = map(int, re.findall(r'\d+', row['Special offers'])))
                 for i, suboffer in enumerate(offerArray):
-                    print(suboffer)
+                    suboffer = suboffer.strip()
+                    
                     offers[row['Item']].insert(0, (int(suboffer[0]), nums[i]))
 
     print(offers)
@@ -153,6 +154,7 @@ def checkout(skus):
 
 
 assert checkout("FFF") == 20
+
 
 
 
