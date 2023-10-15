@@ -105,8 +105,10 @@ def populateItemsOffers(table):
     
 def checkout(skus):
     
-    
-    prices = pd.read_csv(StringIO(re.sub(r'[|+]|-{2,}', '  ', priceTable)), sep='\s{2,}', engine='python')
+    with open("pricelist.txt") as f:
+        data = f.read()
+
+    prices = pd.read_csv(StringIO(re.sub(r'[|+]|-{2,}', '  ', data)), sep='\s{2,}', engine='python')
 
     validItems, offers = populateItemsOffers(prices)
 
@@ -119,17 +121,6 @@ def checkout(skus):
 
 
     return calShop.findTotal()
-
-
-assert checkout("FFF") == 20
-
-
-
-
-
-
-
-
 
 
 
