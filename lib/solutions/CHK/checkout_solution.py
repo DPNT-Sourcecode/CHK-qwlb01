@@ -96,7 +96,7 @@ def populateItemsOffers(table):
                 for suboffer in offerArray:
                     nums = re.findall('\d+', suboffer)
                     
-                    offers[row['Item']].insert(0, (nums[0], nums[1]))
+                    offers[row['Item']].insert(0, (int(nums[0]), int(nums[1])))
 
     return validItems, offers
             
@@ -151,6 +151,8 @@ def checkout(skus):
 
 
     return calShop.findTotal()
+
+
 
 
 
