@@ -62,7 +62,7 @@ class CalculateShop:
                         offerCount = 0
                     else:
                         multiBuy = sorted(multiBuy, key=lambda tup: tup[1], reverse=True)
-
+                        print(multiBuy)
                         self.items[multiBuy[0][0]] -= 1
                         self.items[multiBuy[1][0]] -= 1
 
@@ -71,6 +71,7 @@ class CalculateShop:
                     continue
                     
                 price += offerCount * offer[1]
+                
                 remaningItems -= offerCount * offer[0]
             
             price += remaningItems * self.validItems[itemCode]
@@ -79,6 +80,7 @@ class CalculateShop:
             price += self.items[itemCode] * self.validItems[itemCode]
 
         self.checkoutArea[itemCode] = price
+        print(self.checkoutArea)
 
     def findTotal(self) -> int:
         for i in self.items.keys():
@@ -173,15 +175,6 @@ def checkout(skus):
 
 print(checkout("XYZS"))
 assert checkout("XYZS") == 62
-
-
-
-
-
-
-
-
-
 
 
 
