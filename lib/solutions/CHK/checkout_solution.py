@@ -106,14 +106,19 @@ priceTable = """
 +------+-------+------------------------+ 
 """
 
-def populateItemsOffers(table, validItems, offers):
+def populateItemsOffers(table):
+
+    validItems = {}
+    offers = {}
+
+    print(table.keys)
 
 
 def checkout(skus):
     
-    df1 = pd.read_csv(StringIO(re.sub(r'[|+]|-{2,}', '  ', priceTable)), sep='\s{2,}', engine='python')
+    prices = pd.read_csv(StringIO(re.sub(r'[|+]|-{2,}', '  ', priceTable)), sep='\s{2,}', engine='python')
 
-    validItems, offers = populateItemsOffers(d)
+    validItems, offers = populateItemsOffers(prices)
 
     calShop = CalculateShop(skus, validItems, offers)
 
@@ -127,6 +132,7 @@ def checkout(skus):
 
 
 assert checkout("FFF") == 20
+
 
 
 
