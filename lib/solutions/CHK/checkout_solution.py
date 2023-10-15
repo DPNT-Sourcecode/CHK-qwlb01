@@ -10,6 +10,7 @@ class CalculateShop:
         self.items = collections.defaultdict(int)
         self.validItems = validItems
         self.offers = offers
+        self.checkoutArea = {}
 
 
     def validateInput(self) -> bool:
@@ -28,26 +29,25 @@ class CalculateShop:
             self.items[i]+=1
     
     def applyFreeOffers(self):
-        
+
     
-    def calculateCost(self) -> int:
+    def calculateItemCost(self, item) -> int:
         
         price = 0
 
-        for k, v in self.items.items():
-            if k in self.offers:
-                remaningItems = v
-                for offer in self.offers[k]:
-                    if isinstance(offer[1], str):
-                        continue
-                    offerCount = int(remaningItems / offer[0])
-                    price += offerCount * offer[1]
-                    remaningItems -= offerCount * offer[0]
-                
-                price += remaningItems * self.validItems[k]
+        if k in self.offers:
+            remaningItems = v
+            for offer in self.offers[k]:
+                if isinstance(offer[1], str):
+                    continue
+                offerCount = int(remaningItems / offer[0])
+                price += offerCount * offer[1]
+                remaningItems -= offerCount * offer[0]
+            
+            price += remaningItems * self.validItems[k]
 
-            else:
-                price += v * self.validItems[k]
+        else:
+            price += v * self.validItems[k]
 
         return price
 
@@ -75,4 +75,5 @@ def checkout(skus):
 assert checkout("AAAABB") == 225
 assert checkout("AA") == 100
 assert checkout("AF") == -1
+
 
