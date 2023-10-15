@@ -7,7 +7,7 @@ class CalculateShop:
 
     def __init__(self, skus, validItems, offers):
         self.skus = skus
-        self.items = collections.defaultdict(int)
+        self.items = {}
         self.validItems = validItems
         self.offers = offers
         self.checkoutArea = {}
@@ -26,7 +26,10 @@ class CalculateShop:
         
     def countSKUS(self) -> None:
         for i in self.skus:
-            self.items[i]+=1
+            if i in self.items:
+                self.items[i] += 1
+            else:
+                self.items[i] = 1
     
     
     def calculateItemCost(self, itemCode) -> None:
@@ -86,6 +89,7 @@ def checkout(skus):
 
 
     return calShop.findTotal()
+
 
 
 
