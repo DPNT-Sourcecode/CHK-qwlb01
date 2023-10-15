@@ -45,8 +45,9 @@ class CalculateShop:
 
 def checkout(skus):
 
-    validItems = {'A': 50, 'B': 30, 'C': 20, 'D': 15}
-    offers = {'A': (3, 130), 'B': (2, 45)}
+    validItems = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40}
+    #
+    offers = {'A': [(5, 200), (3, 130)], 'B': [(2, 45)], 'E': [(2, 'B')]}
 
     calShop = CalculateShop(skus, validItems, offers)
 
@@ -60,3 +61,4 @@ def checkout(skus):
 
 
     
+
