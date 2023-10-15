@@ -46,8 +46,9 @@ class CalculateShop:
                 offerCount = int(remaningItems / offer[0])
                 #if free offer, recalculate the item with free offer included
                 if isinstance(offer[1], str):
-                    self.items[offer[1]] -= offerCount
-                    self.calculateItemCost(offer[1])
+                    if offer[1] in self.items:
+                        self.items[offer[1]] -= offerCount
+                        self.calculateItemCost(offer[1])
                     continue
                 price += offerCount * offer[1]
                 remaningItems -= offerCount * offer[0]
@@ -89,6 +90,8 @@ def checkout(skus):
 
 
     return calShop.findTotal()
+
+
 
 
 
