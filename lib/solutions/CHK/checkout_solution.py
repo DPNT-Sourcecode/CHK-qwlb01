@@ -94,11 +94,3 @@ def checkout(skus):
 
 
 
-
-
-
-
-
-
-
-
