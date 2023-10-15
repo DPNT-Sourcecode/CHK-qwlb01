@@ -23,10 +23,12 @@ class CalculateShop:
         return True
 
         
-
     def countSKUS(self) -> None:
         for i in self.skus:
             self.items[i]+=1
+    
+    def calculateCost(self) -> int:
+        
 
 
 
@@ -34,7 +36,16 @@ def checkout(skus):
 
     validItems = ['A', 'B', 'C', 'D']
     offers = {'A': (3, 130), 'B': (2, 45)}
+
+    calShop = CalculateShop(skus, validItems, offers)
+
+    if not calShop.validateInput():
+        return -1
     
+    calShop.countSKUS()
+
+    
+
 
 
 
