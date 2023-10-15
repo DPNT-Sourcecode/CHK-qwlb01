@@ -9,3 +9,4 @@ class TestCHK():
         assert checkout_solution.compute("AAAAAAAABBEE") == 440
         assert checkout_solution.compute("BBEE") == 110
         assert checkout_solution.compute("BEBE") == 110
+        assert checkout_solution.compute("FFF") == 20
