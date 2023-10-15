@@ -112,10 +112,14 @@ def populateItemsOffers(table):
     offers = {}
 
     for i, row in table.iterrows():
-        
-        print(row['Item'])
+        validItems[row['Item']] = row['Price']
+
+        if row['Special offers'] != None:
+            if row['Special offers']
+            print(row['Special offers'])
 
 
+    
 def checkout(skus):
     
     prices = pd.read_csv(StringIO(re.sub(r'[|+]|-{2,}', '  ', priceTable)), sep='\s{2,}', engine='python')
@@ -134,6 +138,7 @@ def checkout(skus):
 
 
 assert checkout("FFF") == 20
+
 
 
 
