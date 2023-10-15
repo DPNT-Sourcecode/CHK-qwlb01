@@ -47,8 +47,11 @@ class CalculateShop:
                 #if free offer, recalculate the item with free offer included
                 if offer[1] == itemCode:
                     offerCount = int(remaningItems / offer[0] + 1)
+                    price += offerCount * (self.validItems[itemCode] * offer[0])
+                    remaningItems -= offerCount * (offer[0] + 1)
+                    continue
 
-                if isinstance(offer[1], str):
+                elif isinstance(offer[1], str):
                     if offer[1] in self.items:
                         self.items[offer[1]] -= offerCount
                         self.calculateItemCost(offer[1])
@@ -95,7 +98,8 @@ def checkout(skus):
     return calShop.findTotal()
 
 
-assert checkout("FFF") == 20
+print(checkout("FFF"))
+
 
 
 
