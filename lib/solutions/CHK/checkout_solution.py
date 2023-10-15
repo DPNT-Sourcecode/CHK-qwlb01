@@ -88,8 +88,6 @@ def checkout(skus):
     return calShop.findTotal()
 
 
-assert checkout("AAAAAAAABBEE") == 410
-
 
 
 
