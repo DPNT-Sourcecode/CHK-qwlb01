@@ -41,6 +41,7 @@ class CalculateShop:
             remaningItems = self.items[itemCode]
             for offer in self.offers[itemCode]:
                 offerCount = int(remaningItems / offer[0])
+                #if free offer, recalculate the item with free offer included
                 if isinstance(offer[1], str):
                     self.items[offer[1]] -= offerCount
                     self.calculateItemCost(offer[1])
@@ -55,13 +56,16 @@ class CalculateShop:
 
         self.checkoutArea[itemCode] = price
 
-    def findTotal(self):
+    def findTotal(self) -> int:
         for i in self.items.keys():
             self.calculateItemCost(i)
 
         out = 0
 
-        for v in self.c
+        for v in self.checkoutArea.values():
+            out+=v
+
+        return out
 
 
 
@@ -80,16 +84,14 @@ def checkout(skus):
     
     calShop.countSKUS()
 
-    for i in calShop.items.keys():
+
+    return calShop.findTotal()
 
 
-    return calShop.calculateCost()
+assert checkout("AAAAAAAABBEE") == 410
 
 
 
-assert checkout("AAAABB") == 225
-assert checkout("AA") == 100
-assert checkout("AF") == -1
 
 
 
