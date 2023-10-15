@@ -33,8 +33,10 @@ class CalculateShop:
 
         for k, v in self.items.items():
             if k in self.offers:
-                offerCount = int(v / self.offers[k][0])
-                price += (offerCount * self.offers[k][1]) + ((v - (offerCount * self.offers[k][0])) * self.validItems[k])
+                remaningItems = v
+                for offer in self.offers[k]:
+                    offerCount = int(remaningItems / self.offers[k][0])
+                    price += (offerCount * self.offers[k][1]) + ((v - (offerCount * self.offers[k][0])) * self.validItems[k])
             else:
                 price += v * self.validItems[k]
 
@@ -46,7 +48,8 @@ class CalculateShop:
 def checkout(skus):
 
     validItems = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40}
-    #
+    #num offer = for that item, 0 cost = consumable free offer, char = one free of that item
+    #odered in terms of best price for customer
     offers = {'A': [(5, 200), (3, 130)], 'B': [(2, 45)], 'E': [(2, 'B')]}
 
     calShop = CalculateShop(skus, validItems, offers)
@@ -61,4 +64,5 @@ def checkout(skus):
 
 
     
+
 
