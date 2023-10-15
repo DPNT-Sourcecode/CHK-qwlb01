@@ -1,4 +1,5 @@
 import collections
+import re
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -101,26 +102,24 @@ priceTable = """
 | X    | 90    |                        |
 | Y    | 10    |                        |
 | Z    | 50    |                        |
-+------+-------+------------------------+"""
-
-def parse(ascii_table):
-    header = []
-    data = []
-    for line in filter(None, ascii_table.split('\n')):
-        if '-+-' in line:
-            continue
-        if not header:
-            header = filter(lambda x: x!='|', line.split())
-            continue
-        data.append(['']*len(header))
-        splitted_line = filter(lambda x: x!='|', line.split())
-        for i in range(len(splitted_line)):
-            data[-1][i]=splitted_line[i]
-    return header, data
++------+-------+------------------------+ """
 
 def checkout(skus):
 
-    with
+    likes,dislikes = [],[]
+    pairs = re.split("\+-*\+-*\+\n?",likes_and_dislikes)[2:-1] #Drop the header and the tail
+    for p in pairs:
+    likse,dislike = [],[]
+    for l in p.split('\n'):
+        pair = l.split('|')
+        if len(pair) > 1:
+        # Not a blank line
+        like.append(pair[1].strip())
+        dislike.append(pair[2].strip())
+    if len(like) > 0:
+        likes.append(" ".join(like))
+    if len(dislike) > 0:
+        dislikes.append(" ".join(dislike))
     
     validItems = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10}
     #num offer = for that item, 0 cost = consumable free offer, char = one free of that item
@@ -136,6 +135,9 @@ def checkout(skus):
 
 
     return calShop.findTotal()
+
+
+assert checkout("FFF") == 20
 
 
 
