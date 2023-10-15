@@ -52,6 +52,8 @@ class CalculateShop:
                         self.items[offer[1]] -= offerCount
                         self.calculateItemCost(offer[1])
                     continue
+                    
+                    
                 price += offerCount * offer[1]
                 remaningItems -= offerCount * offer[0]
             
@@ -151,6 +153,7 @@ def checkout(skus):
 
 
     return calShop.findTotal()
+
 
 
 
