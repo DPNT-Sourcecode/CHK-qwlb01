@@ -60,10 +60,12 @@ class CalculateShop:
                             multiBuy.append((req, self.validItems[req]))
                     if len(multiBuy) < 2:
                         offerCount = 0
-                    
-                    multiBuy = sorted(multiBuy, key=lambda tup: tup[1], reverse=True)
+                    else:
+                        multiBuy = sorted(multiBuy, key=lambda tup: tup[1], reverse=True)
 
-                    
+                        self.items[multiBuy[0]] -= 1
+                        self.items[multiBuy[1]] -= 1
+                        
                     
                 price += offerCount * offer[1]
                 remaningItems -= offerCount * offer[0]
@@ -164,6 +166,7 @@ def checkout(skus):
 
 
     return calShop.findTotal()
+
 
 
 
