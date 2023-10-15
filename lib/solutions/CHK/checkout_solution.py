@@ -38,7 +38,7 @@ class CalculateShop:
         
         price = 0
 
-        if self.items[itemCode] < 0:
+        if self.items[itemCode] <= 0:
             self.checkOutArea[itemCode] = 0
             return
 
@@ -65,7 +65,10 @@ class CalculateShop:
 
                         self.items[multiBuy[0]] -= 1
                         self.items[multiBuy[1]] -= 1
-                        
+
+                    price += offer[1]
+                    remaningItems -= 1
+                    continue
                     
                 price += offerCount * offer[1]
                 remaningItems -= offerCount * offer[0]
@@ -103,7 +106,8 @@ def populateItemsOffers(table):
                     offers[row['Item']] = [(int(row['Special offers'][0]) + 1, int(row['Special offers'][0]) * int(row['Price']))]
                 else:
                     offers[row['Item']] = [(int(row['Special offers'][0]), row['Special offers'][11])]
-
+            elif "any" in row['Special offers']:
+                offers[row['Item']] = [()]
             else:
                 offers[row['Item']] = []
                 offerArray = row['Special offers'].split(',')
@@ -166,6 +170,7 @@ def checkout(skus):
 
 
     return calShop.findTotal()
+
 
 
 
