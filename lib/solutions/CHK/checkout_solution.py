@@ -5,10 +5,11 @@ import collections
 
 class CalculateShop:
 
-    def __init__(self, skus):
+    def __init__(self, skus, validItems, offers):
         self.skus = skus
-        self.items = None
-        self.validItems = ['A', 'B', 'C', 'D']
+        self.items = collections.defaultdict(int)
+        self.validItems = validItems
+        self.offers = offers
 
 
     def validateInput(self) -> bool:
@@ -24,15 +25,17 @@ class CalculateShop:
         
 
     def countSKUS(self) -> None:
-        self.items = collections.defaultdict(int)
-
         for i in self.skus:
             self.items[i]+=1
 
 
 
 def checkout(skus):
+
+    validItems = ['A', 'B', 'C', 'D']
+    offers = {'A': (3, 130), 'B': (2, 45)}
     
+
 
 
 
