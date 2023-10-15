@@ -42,9 +42,10 @@ class CalculateShop:
                         remaningItems -= offerCount * offer[0]
                     elif offer[1] == 0:
                         remaningItems - offerCount
+                        self.offers[k].pop(0)
                     else:
-                    price += offerCount * offer[1]
-                    remaningItems -= offerCount * offer[0]
+                        price += offerCount * offer[1]
+                        remaningItems -= offerCount * offer[0]
                 
                 price += remaningItems * self.validItems[k]
 
@@ -74,7 +75,10 @@ def checkout(skus):
 
 
 
-    
+assert checkout("AAAABBEE") == 225
+assert checkout("AA") == 100
+assert checkout("AF") == -1
+
 
 
 
