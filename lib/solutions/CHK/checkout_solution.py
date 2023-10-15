@@ -60,6 +60,7 @@ class CalculateShop:
                             multiBuy.append((req, self.validItems[req]))
                     if len(multiBuy) < 2:
                         offerCount = 0
+                        break
                     else:
                         multiBuy = sorted(multiBuy, key=lambda tup: tup[1], reverse=True)
                         print(multiBuy)
@@ -175,6 +176,7 @@ def checkout(skus):
 
 print(checkout("XYZS"))
 assert checkout("XYZS") == 62
+
 
 
 
