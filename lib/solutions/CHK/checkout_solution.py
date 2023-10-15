@@ -16,7 +16,7 @@ class CalculateShop:
 
 
     def validateInput(self) -> bool:
-        if not isinstance(self.skus, str) or self.skus == "":
+        if not isinstance(self.skus, str):
             return False
         
         for i in self.skus:
@@ -151,6 +151,7 @@ def checkout(skus):
 
 
     return calShop.findTotal()
+
 
 
 
