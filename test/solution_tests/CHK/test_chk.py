@@ -1,4 +1,4 @@
-from solutions.CHK import checkout_solution
+from './lib/' import checkout_solution
 
 
 class TestCHK():
