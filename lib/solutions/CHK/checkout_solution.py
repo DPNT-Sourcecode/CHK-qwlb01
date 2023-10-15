@@ -4,23 +4,29 @@ import collections
 # skus = unicode string
 
 class CalculateShop:
-def validateInput(input) -> bool:
-    if not isinstance(input, str):
-        return False
-    
 
-def countSKUS(skus) -> dict:
-    items = collections.defaultdict(int)
+    def __init__(self, skus):
+        self.skus = skus
+        self.items = None
 
-    for i in skus:
-        items[i]+=1
 
-    return items
+
+    def validateInput(self, input) -> bool:
+        if not isinstance(input, str):
+            return False
+        
+
+    def countSKUS(self) -> None:
+        self.items = collections.defaultdict(int)
+
+        for i in self.skus:
+            self.items[i]+=1
 
 
 
 def checkout(skus):
     
+
 
 
 
