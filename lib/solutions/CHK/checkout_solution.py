@@ -160,12 +160,16 @@ priceTable = """
     
 def checkout(skus):
     
+    if skus == "":
+        return 0
+    
     prices = pd.read_csv(StringIO(re.sub(r'[|+]|-{2,}', '  ', priceTable)), sep='\s{2,}', engine='python')
 
     validItems, offers = populateItemsOffers(prices)
 
     calShop = CalculateShop(skus, validItems, offers)
 
+    
     if not calShop.validateInput():
         return -1
     
@@ -177,6 +181,7 @@ def checkout(skus):
 
 
 
+assert checkout("") == 0
 
 
 
