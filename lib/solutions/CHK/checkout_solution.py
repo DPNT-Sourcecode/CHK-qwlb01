@@ -53,7 +53,7 @@ class CalculateShop:
                         self.calculateItemCost(offer[1])
                     continue
                 #multi buy offer    
-                if offer[2] != None:
+                if len(offer) > 2:
                     multiBuy = []
                     for req in offer[2]:
                         if req != itemCode and req in self.items and self.items[req] > 0:
@@ -62,7 +62,7 @@ class CalculateShop:
                         offerCount = 0
                     else:
                         multiBuy = sorted(multiBuy, key=lambda tup: tup[1], reverse=True)
-
+                
                         self.items[multiBuy[0]] -= 1
                         self.items[multiBuy[1]] -= 1
 
@@ -107,7 +107,7 @@ def populateItemsOffers(table):
                 else:
                     offers[row['Item']] = [(int(row['Special offers'][0]), row['Special offers'][11])]
             elif "any" in row['Special offers']:
-                offers[row['Item']] = [()]
+                offers[row['Item']] = [(3, 45, ['S', 'T', 'X', 'Y', 'Z'])]
             else:
                 offers[row['Item']] = []
                 offerArray = row['Special offers'].split(',')
@@ -172,6 +172,7 @@ def checkout(skus):
     return calShop.findTotal()
 
 
+assert checkout("XYZS") == 62
 
 
 
