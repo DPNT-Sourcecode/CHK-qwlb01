@@ -115,7 +115,9 @@ def populateItemsOffers(table):
         validItems[row['Item']] = row['Price']
 
         if row['Special offers'] != None:
-            if row['Special offers']
+            if "free" in row['Special offers']:
+                if row['Item'] == row['Special offers'][]
+                offers[row['Item']] = [()]
             print(row['Special offers'])
 
 
@@ -138,6 +140,7 @@ def checkout(skus):
 
 
 assert checkout("FFF") == 20
+
 
 
 
