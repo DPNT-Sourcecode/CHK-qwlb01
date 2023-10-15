@@ -36,6 +36,12 @@ class CalculateShop:
                 remaningItems = v
                 for offer in self.offers[k]:
                     offerCount = int(remaningItems / offer[0])
+                    
+                    if isinstance(offer[1], str):
+                        offerCount = int(remaningItems / offer[0])
+
+
+                    offerCount = int(remaningItems / offer[0])
                     price += offerCount * offer[1]
                     remaningItems -= offerCount * offer[0]
                 
@@ -68,6 +74,7 @@ def checkout(skus):
 
 
     
+
 
 
 
