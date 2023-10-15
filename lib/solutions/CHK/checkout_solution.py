@@ -33,14 +33,15 @@ class CalculateShop:
 
         for k, v in self.items.items():
             if k in self.offers:
-                price += (int(v / self.offers[k][0]) * self.offers[k][1])
+                offerCount = int(v / self.offers[k][0])
+                price += (offerCount * self.offers[k][1]) + (k - (offerCount * self.offers[k][0]) * 
 
 
 
 
 def checkout(skus):
 
-    validItems = ['A', 'B', 'C', 'D']
+    validItems = {'A':50, 'B':30, 'C':20, 'D':15}
     offers = {'A': (3, 130), 'B': (2, 45)}
 
     calShop = CalculateShop(skus, validItems, offers)
@@ -51,12 +52,3 @@ def checkout(skus):
     calShop.countSKUS()
 
     
-
-
-
-
-
-
-
-
-
