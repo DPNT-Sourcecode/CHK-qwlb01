@@ -54,8 +54,10 @@ class CalculateShop:
                     continue
                 #multi buy offer    
                 if offer[2] != None:
-                    
-                    for req
+                    multiBuy = []
+                    for req in offer[2]:
+                        if req != itemCode and :
+                            multiBuy.append((req, self.validItems[req]))
                     
                 price += offerCount * offer[1]
                 remaningItems -= offerCount * offer[0]
@@ -156,6 +158,7 @@ def checkout(skus):
 
 
     return calShop.findTotal()
+
 
 
 
