@@ -118,8 +118,17 @@ def populateItemsOffers(table):
             if "free" in row['Special offers']:
                 if row['Item'] == row['Special offers'][11]:
                     offers[row['Item']] = [(int(row['Special offers'][0]) + 1, int(row['Special offers'][0]) * int(row['Price']))]
+                else:
+                    offers[row['Item']] = [(int(row['Special offers'][0]), row['Special offers'][11])]
 
-        print(offers)
+            else:
+                offers[row['Item']] = []
+
+                offerArray = row['Special offers'].split(',')
+
+                for suboffer in offerArray:
+                    
+
             
 
 
@@ -142,6 +151,7 @@ def checkout(skus):
 
 
 assert checkout("FFF") == 20
+
 
 
 
