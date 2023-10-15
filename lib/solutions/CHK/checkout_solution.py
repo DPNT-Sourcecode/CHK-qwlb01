@@ -31,23 +31,23 @@ class CalculateShop:
     def applyFreeOffers(self):
 
     
-    def calculateItemCost(self, item) -> int:
+    def calculateItemCost(self, itemCode) -> int:
         
         price = 0
 
-        if k in self.offers:
-            remaningItems = v
-            for offer in self.offers[k]:
+        if itemCode in self.offers:
+            remaningItems = self.items[itemCode]
+            for offer in self.offers[itemCode]:
+                offerCount = int(remaningItems / offer[0])
                 if isinstance(offer[1], str):
                     continue
-                offerCount = int(remaningItems / offer[0])
                 price += offerCount * offer[1]
                 remaningItems -= offerCount * offer[0]
             
-            price += remaningItems * self.validItems[k]
+            price += remaningItems * self.validItems[itemCode]
 
         else:
-            price += v * self.validItems[k]
+            price += self.items[itemCode] * self.validItems[itemCode]
 
         return price
 
@@ -75,5 +75,6 @@ def checkout(skus):
 assert checkout("AAAABB") == 225
 assert checkout("AA") == 100
 assert checkout("AF") == -1
+
 
 
