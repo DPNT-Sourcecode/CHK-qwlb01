@@ -39,7 +39,7 @@ class CalculateShop:
         price = 0
 
         if self.items[itemCode] <= 0:
-            self.checkOutArea[itemCode] = 0
+            self.checkoutArea[itemCode] = 0
             return
 
         if itemCode in self.offers:
@@ -62,9 +62,9 @@ class CalculateShop:
                         offerCount = 0
                     else:
                         multiBuy = sorted(multiBuy, key=lambda tup: tup[1], reverse=True)
-                
-                        self.items[multiBuy[0]] -= 1
-                        self.items[multiBuy[1]] -= 1
+
+                        self.items[multiBuy[0][0]] -= 1
+                        self.items[multiBuy[1][0]] -= 1
 
                     price += offer[1]
                     remaningItems -= 1
@@ -171,8 +171,9 @@ def checkout(skus):
 
     return calShop.findTotal()
 
-
+print(checkout("XYZS"))
 assert checkout("XYZS") == 62
+
 
 
 
