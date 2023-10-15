@@ -84,9 +84,9 @@ class CalculateShop:
         print(self.checkoutArea)
 
     def findTotal(self) -> int:
-        print(sorted(self.items, key=lambda k: self.items[k], reverse=True))
-        for i in sorted(self.items, key=lambda k: self.items[k][0]):
-            self.calculateItemCost(i)
+        print(sorted(self.items.items(), key=lambda item: self.validItems[item[0]]))
+        for k, v in sorted(self.items.items(), key=lambda item: item[1]):
+            self.calculateItemCost(k)
 
         out = 0
 
@@ -177,6 +177,7 @@ def checkout(skus):
 
 print(checkout("XYZS"))
 assert checkout("XYZS") == 62
+
 
 
 
