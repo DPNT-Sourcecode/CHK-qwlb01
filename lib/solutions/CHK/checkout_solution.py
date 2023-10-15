@@ -109,6 +109,8 @@ priceTable = """
 def checkout(skus):
     
     df1 = pd.read_csv(StringIO(re.sub(r'[|+]|-{2,}', '  ', priceTable)), sep='\s{2,}', engine='python')
+
+    
     validItems = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10}
     #num offer = for that item, 0 cost = consumable free offer, char = one free of that item
     #odered in terms of best price for customer
@@ -126,6 +128,7 @@ def checkout(skus):
 
 
 assert checkout("FFF") == 20
+
 
 
 
